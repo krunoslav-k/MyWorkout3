@@ -54,10 +54,17 @@ class LogFragment : Fragment() {
         return view
     }
 
-    fun calculateSetEffort(reps: Int, sets: Int, muscleGroup: String){
-
-
-
+    fun calculateSetEffort(reps: Int, sets: Int, muscleGroup: String):Float{
+        var effort = 0
+        effort = when(muscleGroup){
+            "arms" -> (1/3*weight*reps*sets)
+            "legs" -> (1.5/3*weight*reps*sets)
+            "upper body" -> (2/3*weight*reps*sets)
+            "lower body" -> (2/3*weight*reps*sets)
+            else -> (1/3*weight*reps*sets)
+        }
+        return effort
     }
+
 
 }
